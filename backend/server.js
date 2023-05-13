@@ -1,7 +1,9 @@
 const express = require('express');
 const users = require('./data/userstest');
+const dotenv = require('dotenv');
 
 const app = express();
+dotenv.config();
 
 
 app.get('/', (req, res) => {
@@ -12,9 +14,11 @@ app.get('/api/users', (req, res) => {
     res.json(users)
 });
 
-app.get('/api/users/:id/:id2', (req, res) => {
+app.get('/api/users/:id', (req, res) => {
     const user = users.find((n) => n._id === req.params.id);
-    console.log(req.params);
-})
+    res.send(user);
+});
 
-app.listen(5000, console.log('server started on port 5000'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`Server started on PORT ${PORT}`));
