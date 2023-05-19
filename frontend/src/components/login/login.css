@@ -1,0 +1,39 @@
+.login-background {
+  background: linear-gradient(139.1deg, #15243F 23.21%, #39A4C9 84.78%);
+  height: 98vh;
+}
+
+.login-box{
+text-align: center;
+position:relative;
+
+width: 50%;
+margin:auto;
+height: 60%;
+top:20%;
+
+background: #FFFFFF;
+border-radius: 32px;
+
+}
+
+form{
+    width:50%;
+    margin:auto;
+    margin-top: 10%;
+}
+
+input, label {
+    display:flex;
+    text-align: center;
+    margin-left: 25%;
+
+}
+
+input{
+    width: 52%;
+}
+
+label{
+    padding-top: 5%;
+}

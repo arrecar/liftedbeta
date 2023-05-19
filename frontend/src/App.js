@@ -1,8 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from "./components/navbar/navbar";
+import Login from './components/login/login';
 
-const App = () => {
-  return <h1 className="App">Hello World</h1>;
-}
+function App() {
+  return (
+      <Login/>
+  )
+};
 
 export default App;
