@@ -1,0 +1,56 @@
+.button{
+  margin-top: 10%;
+  background: #F15D60;
+  border-radius: 6px;   
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  color: #FFFFFF;
+  width: 60%;
+  text-align: center;
+  cursor: pointer;
+  margin-left:5%;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  background: #39A4C9;
+  width: 15%;  
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  grid-column-start: 2;
+}
+
+.navlist{
+  list-style-type: none;
+  padding-top: 60%; 
+}
+
+.navlist button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  border-radius: 31px;
+  width: 100%;
+  background: #39A4C9;  
+  text-align: center;
+  border:none;
+}
+
+.navlist button.active {
+  background: #188CB4;
+}
+
+li a:hover:not(.active) {
+  background: #188CB4;
+  border-radius: 31px;
+}

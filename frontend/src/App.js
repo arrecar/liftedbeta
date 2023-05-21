@@ -1,11 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from "./components/navbar/navbar";
-import Login from './components/login/login';
+import Navbar from './components/navbar/navbar';
+import Header from './components/header/header';
 
 function App() {
   return (
-      <Login/>
+      <div className='maincontainer'>
+         <Navbar></Navbar>
+         <Header></Header>
+      </div>
+     
   )
 };
 

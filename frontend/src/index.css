@@ -1,19 +1,14 @@
-@import "./components/login/login.css";
+@import "./screens/landingPage/login.css";
+@import "./components/navbar/navbar.css";
+@import "./components/header/header.css";
 
-.button{
-  margin-top: 10%;
-  background: #F15D60;
-  border-radius: 6px;   
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 18px;
-  /* identical to box height */
-
-  color: #FFFFFF;
-  width: 60%;
-  text-align: center;
+button{
   cursor: pointer;
-  margin-left:5%;
 }
+
+#root{
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  height: 100%;
+}
+

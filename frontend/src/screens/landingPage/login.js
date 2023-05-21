@@ -4,7 +4,7 @@ function Login(){
   return (
     <div className='login-background'>
         <div className='login-box'>
-            <img src='logo.png' alt = "Lifted Beta logo" ></img>
+            <img src='../../pictures/logo.png' alt = "Lifted Beta logo" ></img>
             <h2>Log in</h2>
             <form>
                 <label for='email'>Email:</label>
