@@ -1,4 +1,4 @@
-import Nav from 'react-bootstrap/Nav';
+import React from 'react'
 
 function Navbar() {
     return ( 
@@ -10,7 +10,7 @@ function Navbar() {
                 <div></div><button>Grades</button >
                 <div></div><button>Transcripts</button >
             </div>
-        </div>    
+    </div> 
     );
 }
 
