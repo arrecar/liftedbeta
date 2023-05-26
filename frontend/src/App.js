@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Mainpage from './screens/mainPage/mainpage';
+import Login from './screens/landingPage/login';
 
 
 function App() {
   return (
-    <Mainpage/>
+    <Login/>
   )
 };
 
