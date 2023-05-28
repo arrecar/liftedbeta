@@ -1,5 +1,5 @@
 const express = require('express');
-const users = require('./data/userstest');
+//const users = require('./data/userstest');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
@@ -11,7 +11,7 @@ connectDB();
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.send("API is running..")
 });
 
@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
     res.json(users)
 });*/
 
-app.get('/api/users/:id', (req, res) => {
+/*app.get('/api/users/:id', (req, res) => {
     const user = users.find((n) => n._id === req.params.id);
     res.send(user);
-});
+});*/
 
 app.use('/api/users', userRoutes)
 
