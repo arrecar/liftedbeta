@@ -38,5 +38,24 @@ const addUser = asyncHandler(async (req, res) => {
     }
     });
 
-module.exports={addUser};
+const authUser =  asyncHandler(async (req, res, ) => {
+    const { email, password } = req.body;
+    
+    const user = await User.findOne({email});
+
+    if (user && (await user.matchPassword(password))) {
+        res.json({
+            _id: user._id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            role: user.role,
+        })
+    } else {
+        res.status(400)
+        throw new Error('Invalid Email or Password')
+    }
+});
+
+module.exports={addUser, authUser};
 
