@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-function Login(){
+const Login = () =>{
   return (
     <div className='login-background'>
         <div className='login-box'>
-            <img src='../../pictures/logo.png' alt = "Lifted Beta logo" ></img>
+            <img img src = "frontend\src\screens\landingPage\test.jpeg" alt = "Lifted Beta logo" ></img>
             <h2>Log in</h2>
             <form>
                 <label for='email'>Email:</label>
