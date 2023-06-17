@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Button, Form} from 'react-bootstrap';
 import axios from 'axios';
+import ErrorMessage from '../../components/ErrorMessage';
+import {Navigate, useNavigate} from 'react-router-dom';
 
   /*<form >
                 <label for='email'>Email:</label>
@@ -12,11 +14,13 @@ import axios from 'axios';
             </form>*/
 
 const Login = () =>{
-
+  const navigate=useNavigate();
   const [email,setEmail] = useState("")
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [authenticated, setAuthentication] = useState(localStorage.getItem(localStorage.getItem("authenticated")||false));
+  //const [loading, setLoading] = useState(false);
+
 
   const submitHandler = async (e) =>{
     e.preventDefault();
@@ -26,13 +30,15 @@ const Login = () =>{
           "Content-type":"application/json"
         }
       }
-      setLoading(true);
+      //setLoading(true);
 
       const {data} = await axios.post('/api/users/login', {email,password},config);
+      localStorage.setItem("authenticated",true);
       console.log(data);
       localStorage.setItem('userinfo',JSON.stringify(data));
+      navigate('/mainpage');
 
-      setLoading(false);
+      //setLoading(false);
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -43,6 +49,7 @@ const Login = () =>{
         <div className='login-box'>
             <img src = "test.jpeg" alt = "Lifted Beta logo" ></img>
             <h2>Log in</h2>
+            {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
             <Form onSubmit={submitHandler}>
               <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email address</Form.Label>
