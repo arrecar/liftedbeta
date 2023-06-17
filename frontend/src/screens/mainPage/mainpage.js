@@ -9,6 +9,9 @@ import { Alert } from 'react-bootstrap'
 
 const Mainpage = () => {
   const [authenticated, setauthenticated] = useState(null);
+  const userinfo = JSON.parse(localStorage.getItem("userinfo"));
+  const name = userinfo['firstname'] + ' ' + userinfo['lastname'];
+  console.log(name);
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
     if (loggedInUser) {
@@ -25,7 +28,7 @@ const Mainpage = () => {
   return (
       <div className='layout'>
           <Navbar/>
-          <Header/>
+          <Header name={name}/>
           <Content/>
       </div>
     )
