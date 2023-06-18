@@ -11,7 +11,8 @@ const Mainpage = () => {
   const [authenticated, setauthenticated] = useState(null);
   const userinfo = JSON.parse(localStorage.getItem("userinfo"));
   const name = userinfo['firstname'] + ' ' + userinfo['lastname'];
-  console.log(name);
+  const role = userinfo['role'];
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
     if (loggedInUser) {
@@ -27,7 +28,7 @@ const Mainpage = () => {
   } else {
   return (
       <div className='layout'>
-          <Navbar/>
+          <Navbar role={role}/>
           <Header name={name}/>
           <Content/>
       </div>

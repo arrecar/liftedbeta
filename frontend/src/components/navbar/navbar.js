@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Navbar() {
+function Navbar(props) {
+    
     return ( 
         <div className='navbar'>
             <img src='../../../src/pictures/logo.png' alt = "Lifted Beta logo"></img>
