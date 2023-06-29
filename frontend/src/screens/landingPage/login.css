@@ -1,6 +1,6 @@
 .login-background {
   background: linear-gradient(139.1deg, #15243F 23.21%, #39A4C9 84.78%);
-  height: 98vh;
+  height: 100vh;
 }
 
 .login-box{
@@ -9,7 +9,7 @@ position:relative;
 
 width: 50%;
 margin:auto;
-height: 60%;
+height: 63%;
 top:20%;
 
 background: #FFFFFF;
@@ -20,14 +20,12 @@ border-radius: 32px;
 form{
     width:50%;
     margin:auto;
-    margin-top: 10%;
+    margin-top: none;
 }
 
 input, label {
     display:flex;
-    text-align: center;
-    margin-left: 25%;
-
+    text-align: left;
 }
 
 input{
@@ -38,11 +36,15 @@ label{
     padding-top: 5%;
 }
 
-img{
-    width: 10%;
-    height: 10%;
+img {
+    width: 30%;
+    margin-top: 20px;
 }
 
-.button{
-    height: 20%
+.mb-3{
+    text-align: left;
+}
+
+.fade{
+    opacity:1 !important;
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, Image } from 'react-bootstrap';
 import axios from 'axios';
 import ErrorMessage from '../../components/ErrorMessage';
 import {Navigate, useNavigate} from 'react-router-dom';
+import logo from '../landingPage/logo.png';
 
   /*<form >
                 <label for='email'>Email:</label>
@@ -47,9 +48,10 @@ const Login = () =>{
   return (
     <div className='login-background'>
         <div className='login-box'>
-            <img src = "test.jpeg" alt = "Lifted Beta logo" ></img>
-            <h2>Log in</h2>
-            {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+            <Image src={logo} alt = "Lifted Beta logo" />
+            <h1>Log in</h1>
+            {error && <ErrorMessage variant='danger'>{error}</ErrorMessage>}
+            {console.log(error)}
             <Form onSubmit={submitHandler}>
               <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email address</Form.Label>
@@ -59,7 +61,7 @@ const Login = () =>{
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
               </Form.Group>
-              <Button variant="primary" type="submit" className='button'>
+              <Button variant= 'danger' type="submit" className='button'>
                 Submit
               </Button>
             </Form>
