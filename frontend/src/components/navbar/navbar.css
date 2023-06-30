@@ -21,30 +21,33 @@
   margin: 0;
   padding: 0;
   background: #39A4C9;
-  width: 15%;  
+  width: 100%;  
   position: fixed;
   height: 100vh;
   overflow: auto;
   grid-column-start: 1;
+  text-align: center;
 }
 
 .navlist{
   list-style-type: none;
   padding-top: 60%; 
+  text-align: center;
 }
 
 .navlist button {
   font-family: 'Inter';
-  font-style: normal;
+  font-style: bold;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 200%;
   line-height: 29px;
   display: flex;
   border-radius: 31px;
   width: 100%;
   background: #39A4C9;  
-  text-align: center;
   border:none;
+  color: #182C55;
+  padding-left: 20%;
 }
 
 .navlist button.active {
@@ -59,3 +62,9 @@ li a:hover:not(.active) {
   background: #188CB4;
   border-radius: 31px;
 }
+
+.logo-img-navbar{
+  width: 80%;
+  margin-top: 30px;
+}
+

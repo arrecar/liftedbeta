@@ -4,7 +4,10 @@ import Header from '../../components/main/header'
 import Content from '../../components/main/content'
 import { BrowserRouter, Routes } from 'react-router-dom'
 import { useEffect, useState } from "react";
-import { Alert } from 'react-bootstrap'
+import { Alert, Container} from 'react-bootstrap'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 
 const Mainpage = () => {
@@ -27,7 +30,8 @@ const Mainpage = () => {
     )
   } else {
   return (
-      <div className='layout'>
+
+      <div className='main-layout'>
           <Navbar role={role}/>
           <Header name={name}/>
           <Content/>

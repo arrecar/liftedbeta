@@ -3,7 +3,7 @@ import {Button, Form, Image } from 'react-bootstrap';
 import axios from 'axios';
 import ErrorMessage from '../../components/ErrorMessage';
 import {Navigate, useNavigate} from 'react-router-dom';
-import logo from '../landingPage/logo.png';
+import logo from '../../pictures/logo.png';
 
   /*<form >
                 <label for='email'>Email:</label>
@@ -48,7 +48,7 @@ const Login = () =>{
   return (
     <div className='login-background'>
         <div className='login-box'>
-            <Image src={logo} alt = "Lifted Beta logo" />
+            <Image src={logo} alt = "Lifted Beta logo" className='logo-img-login'/>
             <h1>Log in</h1>
             {error && <ErrorMessage variant='danger'>{error}</ErrorMessage>}
             {console.log(error)}
