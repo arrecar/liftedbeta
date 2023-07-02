@@ -10,10 +10,10 @@ function Navbar(props) {
             <div className='navbar'>
                 <Image src={logo} alt = "Lifted Beta logo" className='logo-img-navbar'></Image>
                 <ButtonGroup className='navlist'>
-                    <Button>Users</Button>
-                    <Button>Students</Button>
-                    <Button>Grades</Button>
-                    <Button>Transcripts</Button>
+                    <Button onClick={() => props.updateContent('users')}>Users</Button>
+                    <Button onClick={() => props.updateContent('students')}>Students</Button>
+                    <Button onClick={() => props.updateContent('grades')}>Grades</Button>
+                    <Button onClick={() => props.updateContent('transcripts')}>Transcripts</Button>
                 </ButtonGroup>
             </div> 
         );
@@ -23,8 +23,8 @@ function Navbar(props) {
         <div className='navbar'>
             <Image src={logo} alt = "Lifted Beta logo" className='logo-img-navbar'></Image>
             <ButtonGroup className='navlist'>
-                <Button>Grades</Button>
-                <Button>Transcripts</Button>
+                <Button onClick={() => props.updateContent('grades')}>Grades</Button>
+                <Button onClick={() => props.updateContent('transcripts')}>Transcripts</Button>
             </ButtonGroup>
         </div> 
         );
@@ -34,9 +34,9 @@ function Navbar(props) {
             <div className='navbar'>
                 <Image src={logo} alt = "Lifted Beta logo" className='logo-img-navbar'></Image>
                 <ButtonGroup className='navlist'>
-                    <Button>Students</Button>
-                    <Button>Grades</Button>
-                    <Button>Transcripts</Button>
+                    <Button onClick={() => props.updateContent('students')}>Students</Button>
+                    <Button onClick={() => props.updateContent('grades')}>Grades</Button>
+                    <Button onClick={() => props.updateContent('transcripts')}>Transcripts</Button>
                 </ButtonGroup>
             </div> 
         );

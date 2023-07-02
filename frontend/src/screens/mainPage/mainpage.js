@@ -12,16 +12,28 @@ import Col from 'react-bootstrap/Col';
 
 const Mainpage = () => {
   const [authenticated, setauthenticated] = useState(null);
-  const userinfo = JSON.parse(localStorage.getItem("userinfo"));
-  const name = userinfo['firstname'] + ' ' + userinfo['lastname'];
-  const role = userinfo['role'];
+  const [content, setContent] = useState('welcome');
+
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
+    const storedContent = localStorage.getItem("page")
     if (loggedInUser) {
       setauthenticated(loggedInUser);
-    }
+    };
+    if (storedContent){
+      setContent(storedContent)
+    };
   }, []);
+
+  useEffect(() =>{
+    localStorage.setItem('page', content );
+  }, [content]);
+
+  const updateContent = (page) => {
+    setContent(page);
+  } 
+
   if (!authenticated){
     return (
       <Alert variant="danger">
@@ -29,12 +41,15 @@ const Mainpage = () => {
       </Alert>
     )
   } else {
+    const userinfo = JSON.parse(localStorage.getItem("userinfo"));
+    const name = userinfo['firstname'] + ' ' + userinfo['lastname'];
+    const role = userinfo['role'];
   return (
 
       <div className='main-layout'>
-          <Navbar role={role}/>
+          <Navbar role={role} updateContent={updateContent}/>
           <Header name={name}/>
-          <Content/>
+          <Content content={content}/>
       </div>
     )
   }

@@ -11,6 +11,7 @@ const Header = (props) => {
       <Nav.Item onClick={ () => {
         localStorage.removeItem("userinfo");
         localStorage.removeItem("authenticated");
+        localStorage.removeItem("page");
         navigate('/');
       }} className='logout'>Logout</Nav.Item>
     </div>

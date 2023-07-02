@@ -14,7 +14,7 @@ import logo from '../../pictures/logo.png';
                 <button type = "submit" value = "Submit" className='button'>Submit</button>
             </form>*/
 
-const Login = () =>{
+const LoginPage = () =>{
   const navigate=useNavigate();
   const [email,setEmail] = useState("")
   const [password, setPassword] = useState("");
@@ -22,9 +22,9 @@ const Login = () =>{
   const [authenticated, setAuthentication] = useState(localStorage.getItem(localStorage.getItem("authenticated")||false));
   //const [loading, setLoading] = useState(false);
 
-
   const submitHandler = async (e) =>{
     e.preventDefault();
+
     try {
       const config = {
         headers: {
@@ -70,4 +70,4 @@ const Login = () =>{
   )
 };
 
-export default Login;
+export default LoginPage;
