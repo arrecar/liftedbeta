@@ -35,7 +35,7 @@ const LoginPage = () =>{
 
       const {data} = await axios.post('/api/users/login', {email,password},config);
       localStorage.setItem("authenticated",true);
-      console.log(data);
+      //console.log(data);
       localStorage.setItem('userinfo',JSON.stringify(data));
       navigate('/mainpage');
 
