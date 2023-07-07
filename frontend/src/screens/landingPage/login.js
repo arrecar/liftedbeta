@@ -52,7 +52,7 @@ const LoginPage = () =>{
             <h1>Log in</h1>
             {error && <ErrorMessage variant='danger'>{error}</ErrorMessage>}
             {console.log(error)}
-            <Form onSubmit={submitHandler}>
+            <Form onSubmit={submitHandler} className='loginform'>
               <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" value={email} placeholder="example@example.com" onChange={(e) => setEmail(e.target.value)}/>

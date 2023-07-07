@@ -1,4 +1,6 @@
 import React from 'react'
+import Users from '../main/users/users';
+
 
 const Content = (props) => {
   
@@ -9,10 +11,8 @@ const Content = (props) => {
     </div>)
   } else if (props.content === 'users') {
     return (
-      <div className='content'>
-          <h1 className='welcome'>Users</h1>
-      </div>
-    )
+        <Users type = 'general' />
+      )
   } else if (props.content === 'students'){
     return (
       <div className='content'>

@@ -34,9 +34,9 @@ function Navbar(props) {
             <div className='navbar'>
                 <Image src={logo} alt = "Lifted Beta logo" className='logo-img-navbar'></Image>
                 <ButtonGroup className='navlist'>
-                    <Button onClick={() => props.updateContent('students')}>Students</Button>
-                    <Button onClick={() => props.updateContent('grades')}>Grades</Button>
-                    <Button onClick={() => props.updateContent('transcripts')}>Transcripts</Button>
+                    <Button onClick={() => props.updateContent('students')} className='navbarbutton'>Students</Button>
+                    <Button onClick={() => props.updateContent('grades')} className='navbarbutton'>Grades</Button>
+                    <Button onClick={() => props.updateContent('transcripts')} className='navbarbutton'>Transcripts</Button>
                 </ButtonGroup>
             </div> 
         );

@@ -10,9 +10,10 @@
 }
 
 .content{
-    background-color: #D9DADE;
+    background-color: #F1F1F1;
     grid-column-start: 2;
     grid-row-start: 2;
+    padding: 50px
 }
 
 .logout{
@@ -39,3 +40,67 @@
     letter-spacing: 1px;
 }
 
+.contentform{
+    margin-left:10px;
+    margin-right:10px;
+    display:contents;
+}
+
+.contentform input{
+    width: 25%;
+    display:inline;
+    padding-top:1px
+}
+
+.content form button{
+    margin-left: 5px;
+    margin-top: 0px;
+    display: inline;
+    width: 10%;
+}
+
+.button-users{
+    margin:0px;
+    width:15%;
+    float:right;
+    margin-right:10px;
+}
+
+.contform{
+    padding-top:10px;
+    padding-left:10px;
+}
+
+.usersTable{
+    overflow-x:auto;
+    margin-top:70px;
+    margin-left: 50px;
+}
+
+.usersTable table{
+    width:90%;
+    margin:auto;
+}
+
+td{
+    width:30%
+}
+
+td button{
+    float:right;
+}
+
+th{
+    height: 70%;
+    font-size: 30px;
+    background-color: #D9DADE;
+}
+
+th, td {
+    border-bottom: 1px solid #0c0c0c;
+}
+
+td {
+    height: 40px;
+    vertical-align: middle;
+}
