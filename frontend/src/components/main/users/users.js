@@ -72,7 +72,7 @@ const clearSearch = (e) =>{
                             <tr>
                                 <td>{search.firstname} {search.lastname}</td>
                                 <td>{search.email}</td>
-                                <td>{search.role} <Button>Edit</Button><Button>Delete</Button></td>
+                                <td>{search.roles} <Button>Edit</Button><Button>Delete</Button></td>
                             </tr>
                         }
                         </table>
