@@ -5,8 +5,7 @@ import Content from '../../components/main/content'
 import { BrowserRouter, Routes } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { Alert, Container} from 'react-bootstrap'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
 
 
 
@@ -18,6 +17,7 @@ const Mainpage = () => {
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
     const storedContent = localStorage.getItem("page")
+
     if (loggedInUser) {
       setauthenticated(loggedInUser);
     };
@@ -49,7 +49,7 @@ const Mainpage = () => {
       <div className='main-layout'>
           <Navbar role={role} updateContent={updateContent}/>
           <Header name={name}/>
-          <Content content={content}/>
+          <Content content={content} updateContent={updateContent}/>
       </div>
     )
   }

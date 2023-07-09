@@ -15,7 +15,7 @@ const getUserByEmail = asyncHandler(async (req, res) =>{
     if (userExists){
         res.json(userExists);
     }else {
-        res.status(400).json({message: 'User not found'})
+        res.status(400).json({message: 'User not found/Invalid Email address'})
     }
 });
 

@@ -9,9 +9,10 @@ const Header = (props) => {
     <div className='header'>
       <h1>{props.name}</h1>
       <Nav.Item onClick={ () => {
-        localStorage.removeItem("userinfo");
+        localStorage.clear()
+        /*localStorage.removeItem("userinfo");
         localStorage.removeItem("authenticated");
-        localStorage.removeItem("page");
+        localStorage.removeItem("page");*/
         navigate('/');
       }} className='logout'>Logout</Nav.Item>
     </div>

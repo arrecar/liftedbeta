@@ -1,8 +1,10 @@
 import React from 'react'
 import Users from '../main/users/users';
+import { useState } from "react";
 
 
 const Content = (props) => {
+
   
   if (props.content === 'welcome'){
     return (
@@ -11,9 +13,13 @@ const Content = (props) => {
     </div>)
   } else if (props.content === 'users') {
     return (
-        <Users type = 'general' />
+        <Users type = 'general' updateContent={props.updateContent}/>
       )
-  } else if (props.content === 'students'){
+  } else if (props.content === 'editUsers') {
+    return (
+        <Users type = 'editUsers' updateContent={props.updateContent}/>
+      )
+  }else if (props.content === 'students'){
     return (
       <div className='content'>
           <h1 className='welcome'>Students</h1>
