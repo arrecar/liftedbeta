@@ -19,7 +19,11 @@ const Content = (props) => {
     return (
         <Users type = 'editUsers' updateContent={props.updateContent}/>
       )
-  }else if (props.content === 'students'){
+  }else if (props.content === 'createUser') {
+    return (
+        <Users type = 'createUser' updateContent={props.updateContent}/>
+      ) 
+    }else if (props.content === 'students'){
     return (
       <div className='content'>
           <h1 className='welcome'>Students</h1>

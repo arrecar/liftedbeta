@@ -43,6 +43,7 @@
 .contentform{
     margin-left:10px;
     margin-right:10px;
+    margin-top: 10px;
     display:contents;
 }
 
@@ -103,4 +104,19 @@ th, td {
 td {
     height: 40px;
     vertical-align: middle;
+}
+
+.editCreateform div {
+    margin-right:10px;
+}
+
+.editCreateform {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.editCreateform button{
+    width:20% !important;
+    height: 75%;
+    margin-top: 10px !important;
 }
