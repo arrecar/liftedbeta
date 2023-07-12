@@ -55,7 +55,7 @@ const LoginPage = () =>{
             <Form onSubmit={submitHandler} className='loginform'>
               <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" value={email} placeholder="example@example.com" onChange={(e) => setEmail(e.target.value)}/>
+                <Form.Control type="email" value={email} placeholder="example@example.com" onChange={(e) => setEmail(e.target.value)} required/>
               </Form.Group>
               <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Password</Form.Label>

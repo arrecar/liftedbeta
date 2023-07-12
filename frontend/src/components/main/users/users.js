@@ -56,6 +56,14 @@ const Users = (props) => {
             setMessage('User updated successfully');
             setSearch({});
             setEmail('');
+            setFirstname('');
+            setLastname('');
+            setEmail('');
+            setPassword('');
+            setId(0);
+            setRole('');
+            setOption1('');
+            setOption2('');
             getData();
             props.updateContent('users');
 
@@ -156,6 +164,15 @@ const Users = (props) => {
             const {data} = await axios.post(`api/users/create`,{ _id,firstname,lastname,email,role,password },config);
             setMessage('User created successfully');
             getData();
+            setEmail('');
+            setFirstname('');
+            setLastname('');
+            setEmail('');
+            setPassword('');
+            setId(0);
+            setRole('');
+            setOption1('');
+            setOption2('');
             props.updateContent('users');
         } catch (error){
             setError(error.response.data.message);
