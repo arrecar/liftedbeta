@@ -8,7 +8,7 @@ const gradesSchema = mongoose.Schema(
 			unique: true,
 		},
 		unit: {
-			type: String,
+			type: Number,
 			required: true,
 		},
 		grade: {

@@ -43,7 +43,7 @@ const getGrades = asyncHandler(async(req, res) => {
 const getGradeById = asyncHandler(async(req, res) => {
 	const{id} = req.params;
 	
-	const gradeExists = await Grade.findeOne({id});
+	const gradeExists = await Grade.findOne({_id:id});
 
 	if (gradeExists) {
 		res.json(gradeExists);
@@ -79,7 +79,9 @@ const getGradeByTeacher = asyncHandler(async(req, res) => {
 const updateGrade = asyncHandler(async(req, res) => {
 	const {id} = req.params;
 
-	const gradeExists = await Grade.find({_id: id});
+	const gradeExists = await Grade.findOne({_id: id});
+
+	const {unit, grade, student, teacher, comments} = req.body;
 
 	if (gradeExists){
 		gradeExists.unit = unit;
