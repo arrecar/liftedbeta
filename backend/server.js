@@ -3,6 +3,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const gradeRoutes = require('./routes/gradesRoutes');
 const {notFound, errorHandler} = require('./middlewares/errorMiddleware');
 const path = require('path');
 
@@ -25,7 +27,9 @@ app.use(express.json());
     res.send(user);
 });*/
 
-app.use('/api/users', userRoutes)
+app.use('/api/users', userRoutes);
+app.use('/api/students',studentRoutes);
+app.use('/api/grades',gradeRoutes);
 
 //-------------deployment-------------
 
