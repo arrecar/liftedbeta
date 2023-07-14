@@ -82,13 +82,13 @@ const Users = (props) => {
         setLastname(data.lastname)
         setEmail(data.email);
         setRole(data.role);
-        if (role === 'Administrator') {
+        if (data.role === 'Administrator') {
             setOption1('Teacher');
             setOption2('Parent');
-        } else if (role === 'Teacher') {
+        } else if (data.role === 'Teacher') {
             setOption1('Administrator');
             setOption2('Parent')
-        } else if (role === 'Parent') {
+        } else if (data.role === 'Parent') {
             setOption1('Administrator');
             setOption2('Teacher');
         }
@@ -127,13 +127,13 @@ const Users = (props) => {
             setLastname(search.lastname)
             setEmail(search.email);
             setRole(search.role);
-            if (role === 'Administrator'){
+            if (search.role === 'Administrator'){
                 setOption1('Teacher');
                 setOption2('Parent');
-            } else if (role === 'Teacher'){
+            } else if (search.role === 'Teacher'){
                 setOption1('Administrator');
                 setOption2('Parent')
-            } else if (role === 'Parent'){
+            } else if (search.role === 'Parent'){
                 setOption1('Administrator');
                 setOption2('Teacher');
             }
@@ -190,7 +190,6 @@ const clearSearch = (e) =>{
 }
 
     useEffect(() => {
-                
             getData();            
         }, []);
 

@@ -131,6 +131,7 @@ td {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color:lightslategray;
+    border-radius: 32px;
 }
 
 .card:hover {
