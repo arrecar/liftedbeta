@@ -83,10 +83,6 @@
     margin:auto;
 }
 
-td{
-    width:30%
-}
-
 td button{
     float:right;
 }
@@ -113,10 +109,40 @@ td {
 .editCreateform {
     display: grid;
     grid-template-columns: 50% 50%;
+    align-items: end;
 }
 
 .editCreateform button{
     width:20% !important;
     height: 75%;
     margin-top: 10px !important;
+}
+
+.editCreateform .studentcreate{
+    height:50%;
+    margin-left:20px;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width:30%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color:lightslategray;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cardContainer {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+}
+
+.titleGrade{
+    text-align: center;
 }

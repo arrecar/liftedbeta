@@ -49,7 +49,7 @@ const Mainpage = () => {
       <div className='main-layout'>
           <Navbar role={role} updateContent={updateContent}/>
           <Header name={name}/>
-          <Content content={content} updateContent={updateContent}/>
+          <Content role ={role} content={content} updateContent={updateContent}/>
       </div>
     )
   }

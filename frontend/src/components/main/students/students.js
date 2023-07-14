@@ -5,40 +5,32 @@ import axios from 'axios';
 import ErrorMessage from '../../ErrorMessage';
 
 
-
-
-
-
-
-const Users = (props) => {
+const Students = (props) => {
     const [firstname,setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
-    const [role,setRole] = useState('');
-    const [option1, setOption1] = useState('');
-    const [option2, setOption2] = useState('')
-    const [password,setPassword] = useState('');
     const [id,setId] = useState(0);
-    const [email, setEmail] = useState("")
-    const [users, setUsers] = useState([]);
+    const [parentEmail, setparentEmail] = useState("")
+    const [parent2Email, setparent2Email] = useState("");
+    const [students, setStudents] = useState([]);
     const [search, setSearch] = useState({});
     const [error, setError] = useState(false);
     const [message, setMessage] = useState('')
 
     const getData = async () => {
-        const { data } = await axios.get('/api/users');
-        setUsers(data);
+        const { data } = await axios.get('/api/students');
+        setStudents(data);
     }
 
     const handleDelete = async(id) => {
         console.log(id);
         try {
-            const {data} = await axios.delete(`api/users/${id}`)
-            setMessage('User deleted successfully');
+            const {data} = await axios.delete(`api/students/${id}`)
+            setMessage('Student deleted successfully');
             getData();
-            props.updateContent('users');
+            props.updateContent('students');
         } catch (error){
             setError(error.response.data.message);
-            props.updateContent('users');
+            props.updateContent('students');
         }
     }
 
@@ -52,51 +44,36 @@ const Users = (props) => {
                 }
             }
 
-            const {data} = await axios.put(`/api/users/${id}`,{firstname,lastname,email,password,role},config)
-            setMessage('User updated successfully');
+            const {data} = await axios.put(`/api/students/${id}`,{firstname,lastname,parentEmail,parent2Email},config)
+            setMessage('Student updated successfully');
             setSearch({});
-            setEmail('');
+            setparentEmail('');
             setFirstname('');
             setLastname('');
-            setEmail('');
-            setPassword('');
+            setparent2Email('');
             setId(0);
-            setRole('');
-            setOption1('');
-            setOption2('');
             getData();
-            props.updateContent('users');
+            props.updateContent('students');
 
         }catch (error) {
             setError(error.response.data.message);
-            props.updateContent('users')
+            props.updateContent('students')
         }
     }
 
-    const handleEdit1 = async(email) =>{
+    const handleEdit1 = async(id) =>{
 
         try{
-            const { data } = await axios.get(`/api/users/${email}`)
+            const { data } = await axios.get(`/api/students/${id}`)
 
         setFirstname(data.firstname);
         setLastname(data.lastname)
-        setEmail(data.email);
-        setRole(data.role);
-        if (role === 'Administrator') {
-            setOption1('Teacher');
-            setOption2('Parent');
-        } else if (role === 'Teacher') {
-            setOption1('Administrator');
-            setOption2('Parent')
-        } else if (role === 'Parent') {
-            setOption1('Administrator');
-            setOption2('Teacher');
-        }
-        setPassword(data.password);
+        setparentEmail(data.parentEmail);
+        setparent2Email(data.parent2Email);
         setId(data._id);
         setError(false);
         setMessage('');
-        props.updateContent('editUsers')
+        props.updateContent('editStudents')
         
         //localStorage.setItem('searchEmail', JSON.stringify(data))
         } catch (error) {
@@ -104,13 +81,12 @@ const Users = (props) => {
         }
     }
 
-    const searchByEmail = (email) => async (e) =>{
+    const searchById = (id) => async (e) =>{
         e.preventDefault();
         setError(false);
-        
 
         try{
-        const { data } = await axios.get(`/api/users/${email}`);
+        const { data } = await axios.get(`/api/students/${id}`);
         console.log(data);
         setSearch(data);
         //localStorage.setItem('searchEmail', JSON.stringify(data))
@@ -125,32 +101,21 @@ const Users = (props) => {
             //searchByEmail(email);
             setFirstname(search.firstname);
             setLastname(search.lastname)
-            setEmail(search.email);
-            setRole(search.role);
-            if (role === 'Administrator'){
-                setOption1('Teacher');
-                setOption2('Parent');
-            } else if (role === 'Teacher'){
-                setOption1('Administrator');
-                setOption2('Parent')
-            } else if (role === 'Parent'){
-                setOption1('Administrator');
-                setOption2('Teacher');
-            }
-            setPassword(search.password);
+            setparentEmail(search.parentEmail);
+            setparent2Email(search.parent2Email)
             setId(search._id);
             setError(false);
             setMessage('');
-            props.updateContent('editUsers');
+            props.updateContent('editStudents');
     }
 
     const handleCreate = () =>{
                 setError(false);
                 setMessage('');
-        props.updateContent('createUser');
+        props.updateContent('createStudent');
     }
 
-    const handleCreateUser = async(e) =>{
+    const handleCreateStudent = async(e) =>{
         e.preventDefault();
 
         try{
@@ -161,29 +126,25 @@ const Users = (props) => {
                 }
             }
             const _id = id;
-            const {data} = await axios.post(`api/users/create`,{ _id,firstname,lastname,email,role,password },config);
-            setMessage('User created successfully');
+            const {data} = await axios.post(`api/students/create`,{ _id,firstname,lastname,parentEmail,parent2Email },config);
+            setMessage('Student created successfully');
             getData();
-            setEmail('');
+            setparentEmail('');
             setFirstname('');
             setLastname('');
-            setEmail('');
-            setPassword('');
+            setparent2Email('');
             setId(0);
-            setRole('');
-            setOption1('');
-            setOption2('');
-            props.updateContent('users');
+            props.updateContent('students');
         } catch (error){
             setError(error.response.data.message);
-            props.updateContent('users');
+            props.updateContent('students');
         }
     }
 
 const clearSearch = (e) =>{
     e.preventDefault();
     setSearch({});
-    setEmail('');
+    setId(0);
     setError(false);
     setMessage('');
     //localStorage.setItem('searchEmail','');
@@ -197,11 +158,11 @@ const clearSearch = (e) =>{
     if (props.type === 'general'){
         return (
             <div className='content' >
-                <h1>Users</h1>
+                <h1>Students</h1>
                     <div className="contform">
                         <Form className='contentform'>
-                            <Form.Control type="email" value={email} placeholder="example@example.com" onChange={(e) => setEmail(e.target.value)}/>
-                            <Button variant= 'danger' type="submit" className='button' onClick={searchByEmail(email)}>Search</Button>
+                            <Form.Control type="number" value={id} placeholder="Id" onChange={(e) => setId(e.target.value)}/>
+                            <Button variant= 'danger' type="submit" className='button' onClick={searchById(id)}>Search</Button>
                             <Button variant= 'danger' type="submit" className='button' onClick={clearSearch}>Clear</Button>
                         </Form>
                         <Button variant='danger' type="submit" className='button-users' onClick={handleCreate}>Create</Button>
@@ -212,33 +173,33 @@ const clearSearch = (e) =>{
                         <table>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
+                                <th>Primary Parent Email</th>
+                                <th>Second Parent Email</th>
                             </tr>
                         { Object.keys(search).length === 0 &&
-                            users.map((user) => (
+                            students.map((students) => (
                                 <tr>
-                                    <td>{user.firstname} {user.lastname}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.role} <Button id={user._id} onClick={(e)=> {handleDelete(e.target.id)}}>Delete</Button><Button id={user.email} onClick = {(e) => {handleEdit1(e.target.id)}}>Edit</Button></td>
+                                    <td>{students.firstname} {students.lastname}</td>
+                                    <td>{students.parentEmail}</td>
+                                    <td>{students.parent2Email} <Button id={students._id} onClick={(e)=> {handleDelete(e.target.id)}}>Delete</Button><Button id={students._id} onClick = {(e) => {handleEdit1(e.target.id)}}>Edit</Button></td>
                                 </tr>
                         ))}
                         { Object.keys(search).length > 1 &&
                             <tr>
                                 <td>{search.firstname} {search.lastname}</td>
-                                <td>{search.email}</td>
-                                <td>{search.role} <Button id={search._id} onClick={(e)=> {handleDelete(e.target.id)}}>Delete</Button><Button id={search.email} onClick = {(e) => {handleEdit(e.target.id)}}>Edit</Button></td>
+                                <td>{search.parentEmail}</td>
+                                <td>{search.parent2Email} <Button id={search._id} onClick={(e)=> {handleDelete(e.target.id)}}>Delete</Button><Button id={search._id} onClick = {(e) => {handleEdit(e.target.id)}}>Edit</Button></td>
                             </tr>
                         }
                         </table>
                     </div>
             </div>
         )
-    }else if (props.type === 'editUsers'){
+    }else if (props.type === 'editStudents'){
         return (
             <div className='content' >
                 <div className="contform">
-                    <h1>Edit User</h1>
+                    <h1>Edit Student</h1>
                         <Form className='editCreateform' onSubmit={handleUpdate}>
                             <Form.Group controlId='firstname'>
                                 <Form.Label>First Name</Form.Label>
@@ -248,34 +209,25 @@ const clearSearch = (e) =>{
                                 <Form.Label>Last Name</Form.Label>
                                 <Form.Control type="text" value={lastname} onChange={(e) => setLastname(e.target.value)}></Form.Control>
                             </Form.Group>
-                            <Form.Group controlId='email'>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)}></Form.Control>
+                            <Form.Group controlId='parentEmail'>
+                                <Form.Label>Primary Parent Email</Form.Label>
+                                <Form.Control type="email" value={parentEmail} onChange={(e) => setparentEmail(e.target.value)}></Form.Control>
                             </Form.Group>
-                            <Form.Group controlId='password'>
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type='password' value={password} onChange={(e) => setPassword(e.target.value)}></Form.Control>
+                            <Form.Group controlId='parent2Email'>
+                                <Form.Label>Second Parent Email</Form.Label>
+                                <Form.Control type="email" value={parent2Email} onChange={(e) => setparent2Email(e.target.value)}></Form.Control>
                             </Form.Group>
-                            <Form.Group controlId='role'>
-                                <Form.Label>Role</Form.Label>
-                                <Form.Select value = {role} onChange = {(e) => setRole(e.target.value)}>
-                                    <option>{role}</option>
-                                    <option>{option1}</option>
-                                    <option>{option2}</option>
-                                </Form.Select>
-                            </Form.Group>
-
                             <Button variant= 'danger' type="submit" className='button' id={id}>Update</Button>
                         </Form>
                 </div>
             </div>
         )
-    } else if (props.type === 'createUser'){
+    } else if (props.type === 'createStudent'){
         return (
             <div className='content' >
                 <div className="contform">
-                    <h1>Create User</h1>
-                        <Form Form className = 'editCreateform' onSubmit = {handleCreateUser}>
+                    <h1>Create Student</h1>
+                        <Form Form className = 'editCreateform' onSubmit = {handleCreateStudent}>
                             <Form.Group controlId='firstname'>
                                 <Form.Label>First Name</Form.Label>
                                 <Form.Control type='text' value={firstname} onChange={(e) => setFirstname(e.target.value)}></Form.Control>
@@ -284,27 +236,19 @@ const clearSearch = (e) =>{
                                 <Form.Label>Last Name</Form.Label>
                                 <Form.Control type="text" value={lastname} onChange={(e) => setLastname(e.target.value)}></Form.Control>
                             </Form.Group>
-                            <Form.Group controlId='email'>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)}></Form.Control>
+                            <Form.Group controlId='parentEmail'>
+                                <Form.Label>Primary Parent Email</Form.Label>
+                                <Form.Control type="email" value={parentEmail} onChange={(e) => setparentEmail(e.target.value)}></Form.Control>
                             </Form.Group>
-                            <Form.Group controlId='password'>
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type='password' value={password} onChange={(e) => setPassword(e.target.value)}></Form.Control>
-                            </Form.Group>
-                            <Form.Group controlId='role'>
-                                <Form.Label>Role</Form.Label>
-                                <Form.Select value = {role} onChange = {(e) => setRole(e.target.value)}>
-                                    <option>Administrator</option>
-                                    <option>Teacher</option>
-                                    <option>Parent</option>
-                                </Form.Select>
+                            <Form.Group controlId='parent2Email'>
+                                <Form.Label>Second Parent Email</Form.Label>
+                                <Form.Control type="email" value={parent2Email} onChange={(e) => setparent2Email(e.target.value)}></Form.Control>
                             </Form.Group>
                             <Form.Group controlId='_id'>
                                 <Form.Label>Id</Form.Label>
                                 <Form.Control type='number' value={id} onChange={(e) => setId(e.target.value)}></Form.Control>
                             </Form.Group>
-                            <Button variant= 'danger' type="submit" className='button'>Create</Button>
+                            <Button variant= 'danger' type="submit" className='button studentcreate'>Create</Button>
                         </Form>
                 </div>
             </div>
@@ -312,4 +256,4 @@ const clearSearch = (e) =>{
     }
 }
 
-export default Users;
+export default Students;
