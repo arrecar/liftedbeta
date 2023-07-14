@@ -24,6 +24,10 @@ const LoginPage = () =>{
 
   const submitHandler = async (e) =>{
     e.preventDefault();
+    console.log(email);
+    if (email === ""){
+      setError('Please fill out all fields')
+    }else {
 
     try {
       const config = {
@@ -43,7 +47,7 @@ const LoginPage = () =>{
     } catch (error) {
       setError(error.response.data.message);
     }
-  };
+  }};
 
   return (
     <div className='login-background'>
